@@ -2,3 +2,4 @@
 
 #### Commands:
 * `dotnet new gitignore`
+* `dotnet new webapi -n ApiDocker`
