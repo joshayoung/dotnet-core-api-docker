@@ -10,7 +10,12 @@
 
 #### Docker Commands:
 * `docker build -t apidocker .`
-* `docker run --rm --name api-docker-container -p 5000:80 apidocker`
+* `docker run --rm --name api-docker-container2 -p 5000:80 apidocker`
+
+#### Docker-Compose Commands:
+* `docker-compose build`
+* `docker-compose up`
+
 
 #### API Details:
 * View Swagger Doc:

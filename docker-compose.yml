@@ -1,0 +1,11 @@
+version: '3.3'
+services:
+  github_cont:
+    build:
+      context: .
+    container_name: api-docker-container
+    image: apidocker
+    environment:
+      - ASPNETCORE_URLS=http://+:80
+    ports:
+      - "5000:80"
