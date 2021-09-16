@@ -8,6 +8,10 @@
 * `dotnet build`
 * `dotnet run --project ApiDocker/ApiDocker.csproj`
 
+#### Add NuGet Packages:
+* `dotnet add ApiDocker package Microsoft.EntityFrameworkCore.Design`
+* `dotnet add ApiDocker package Microsoft.EntityFrameworkCore.SqlServer`
+
 #### Docker Commands:
 * `docker build -t apidocker .`
 * `docker run --rm --name api-docker-container2 -p 5000:80 apidocker`
