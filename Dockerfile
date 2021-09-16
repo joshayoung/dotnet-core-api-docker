@@ -1,26 +1,20 @@
-FROM mcr.microsoft.com/dotnet/sdk:5.0 AS build
+FROM mcr.microsoft.com/dotnet/sdk:5.0 AS base
 WORKDIR /app
-
 EXPOSE 5000
-EXPOSE 5001
 
-COPY *.sln .
-COPY ./ApiDocker/ApiDocker.csproj /app/ApiDocker/
-RUN dotnet restore "dotnet-core-api-docker.sln"
-
+ENV ASPNETCORE_URLS=http://+:80
+FROM mcr.microsoft.com/dotnet/sdk:5.0 AS build
+WORKDIR /src
+COPY ["ApiDocker/ApiDocker.csproj", "ApiDocker/"]
+RUN dotnet restore "ApiDocker/ApiDocker.csproj"
 COPY . .
-
-RUN dotnet build
+WORKDIR "/src/ApiDocker"
+RUN dotnet build "ApiDocker.csproj" -c Release -o /app/build
 
 FROM build AS publish
+RUN dotnet publish "ApiDocker.csproj" -c Release -o /app/publish
 
+FROM base AS final
 WORKDIR /app
-
-RUN dotnet publish -c Release -o out
-
-FROM mcr.microsoft.com/dotnet/sdk:5.0 AS runtime
-
-WORKDIR /app
-COPY --from=publish /app/out ./
-
+COPY --from=publish /app/publish .
 ENTRYPOINT ["dotnet", "ApiDocker.dll"]
