@@ -23,6 +23,12 @@
 #### Connect to SQL Server via Command Line:
 * `docker exec -it api_db_container /opt/mssql-tools/bin/sqlcmd -P 1432 -S localhost -U sa -P myPass123`
 
+#### Add Initial Migrations:
+* `dotnet-ef migrations add init`
+
+#### Run Migrations:
+* `dotnet-ef database update --verbose`
+
 #### API Details:
 * View Swagger Doc:
   * `https://localhost:5001/swagger/index.html`
