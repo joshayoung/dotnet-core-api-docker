@@ -20,6 +20,8 @@
 * `docker-compose build`
 * `docker-compose up`
 
+#### Connect to SQL Server via Command Line:
+* `docker exec -it api_db_container /opt/mssql-tools/bin/sqlcmd -P 1432 -S localhost -U sa -P myPass123`
 
 #### API Details:
 * View Swagger Doc:
