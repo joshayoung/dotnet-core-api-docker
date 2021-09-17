@@ -17,7 +17,7 @@ namespace ApiDocker
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            var connectionString = "Server=localhost,1432;Database=myCourses;User Id=sa;Password=myPass123;";
+            var connectionString = "Server=host.docker.internal,1432;Database=myCourses;User Id=sa;Password=myPass123;";
             optionsBuilder.UseSqlServer(connectionString);
         }
     }

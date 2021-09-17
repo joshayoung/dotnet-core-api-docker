@@ -34,3 +34,5 @@
   * `https://localhost:5001/swagger/index.html`
 * View Weather Forecast:
   * `http://localhost:5000/WeatherForecast`
+* Wait-for-it Script:
+  * https://github.com/vishnubob/wait-for-it
